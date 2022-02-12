@@ -1,0 +1,17 @@
+
+*{overflow: hidden;}
+.navbar
+{
+    background-color: #2b19c7ef;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: #000000;
+    font-size: 20px;
+}
+
+
+.navbar-light .navbar-nav .nav-link:hover{
+    background-color: rgb(78, 128, 120);
+    text-decoration: underline;
+}
