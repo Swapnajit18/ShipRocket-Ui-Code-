@@ -1,23 +1,89 @@
-
+<!--
 <main style="padding: 44px 0px;">
     <div class="tracking-area pt-95 pb-115">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8 col-lg-10">
                     <div class="tracking-id-info text-center">
+                    -->
                         <p>Enter Your Cargo Tracking, Door to Door Office <a href="#">Order Number.</a></p>
 
-                        <form #trackignForm="ngForm" class="tracking-id-form" >
-                            <input type="text" id="tracking_id">
+                        <form (ngSubmit)="formSubmit()" class="tracking-id-form" >
+                            <input [(ngModel)]="track.trackingId"
+                              type="text" id="tracking_id"  name="trackingId">
                             <button class="btn red-btn">Tracking</button>
                         </form>
-
-                     
-                        
+<!--
+                        <div class="tracking-list" id="status-icon" *ngIf="stringifiedData">
+                            <ul>
+                                <li [class.active]="isDispatched()">
+                                    <div class="tracking-list-icon">
+                                        <i class="flaticon-box"></i>
+                                    </div>
+                                    <div class="tracking-list-content">
+                                        <p>Booked</p>
+                                    </div>
+                                </li>
+                                <li [class.active]="isDeparted()">
+                                    <div class="tracking-list-icon">
+                                        <i class="flaticon-warehouse"></i>
+                                    </div>
+                                    <div class="tracking-list-content">
+                                        <p>Dispatched</p>
+                                    </div>
+                                </li>
+                                <li [class.active]="isDestined()">
+                                    <div class="tracking-list-icon">
+                                        <i class="flaticon-placeholder"></i>
+                                    </div>
+                                    <div class="tracking-list-content">
+                                        <p>Out For Delivery</p>
+                                    </div>
+                                </li>
+                                <li [class.active]="isSuccessful()">
+                                    <div class="tracking-list-icon">
+                                        <i class="flaticon-audit"></i>
+                                    </div>
+                                    <div class="tracking-list-content">
+                                        <p>Delivered</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card" *ngIf="stringifiedData">
+                            <div class="title" >Tracking Details</div>                            
+                            <div class="pricing" *ngFor="let item of stringifiedData">
+                                <!-- <div class="row">
+                                    <div class="col-6"> <span>Booking Id</span> </div>
+                                    <div class="col-6"> <span>{{ item.bookingId }}</span> </div>
+                                </div> -->
+                                <!--
+                                <div class="row">
+                                    <div class="col-6"> <span>Booking Date</span> </div>
+                                    <div class="col-6"> <span>{{ item.bookingDate.slice(0,10) }}</span> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"> <span>Booked By</span> </div>
+                                    <div class="col-6"> <span>{{ item.senderName }}</span> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"> <span>Booked For</span> </div>
+                                    <div class="col-6"> <span>{{ item.receiverName }}</span> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"> <span>Originating City </span> </div>
+                                    <div class="col-6"> <span>{{ item.senderCityName }}</span> </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-6"> <span>Destination City</span> </div>
+                                    <div class="col-6"> <span>{{ item.receiverCityName }}</span> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>    
-</main>
+</main>-->
 <app-footer></app-footer>

@@ -61,12 +61,12 @@ export class GriddataComponent implements OnInit {
   }
   
   columnDefs: ColDef[] = [
-    { headerName:'Booking Id',field: 'bookingId', sortable: true}, //filter: true },
-    { headerName:'Package Id',field: 'packageId', sortable: true},// filter: true },
-    { headerName:'Sender Name',field: 'senderName', sortable: true},// filter: true },
-    { headerName:'Tracking Id',field: 'trackingID', sortable: true},// filter: true },
-    { headerName:'Status',field: 'status', sortable: true},// filter: true },
-    { headerName:'Comments',field: 'comments', sortable: true} //filter: true },
+    { headerName:'Booking Id',field: 'bookingId', sortable: true,filter: true , flex: 1, minWidth: 100}, //filter: true },
+    { headerName:'Package Id',field: 'packageId', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
+    { headerName:'Sender Name',field: 'senderName', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
+    { headerName:'Tracking Id',field: 'trackingID', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
+    { headerName:'Status',field: 'status', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
+    { headerName:'Comments',field: 'comments', sortable: true,filter: true , flex: 1, minWidth: 100} //filter: true },
 ];
 
   rowData:any;

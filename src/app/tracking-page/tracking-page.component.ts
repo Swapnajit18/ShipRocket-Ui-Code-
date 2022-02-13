@@ -1,10 +1,8 @@
-import { HttpErrorResponse } from '@angular/common/http';
+import Swal from 'sweetalert2';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-//import { ToastrService } from 'ngx-toastr';
-//import { TrackingService } from '../service/tracking-service.service';
-import { Params, Router } from '@angular/router';
-import {ActivatedRoute} from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { TrackingService } from 'service/tracking.service';
+import { Tracking } from '../tracking';
 
 @Component({
   selector: 'app-tracking-page',
@@ -13,76 +11,45 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class TrackingPageComponent implements OnInit{
 
- 
+  track:Tracking =new Tracking();
 
+ 
   
-  constructor(
-    ){    
-  }
+  constructor(private http:HttpClient,private trackingService:TrackingService){ }
 
   ngOnInit(){
-    /*
     
-    this.trackingId = this.Activatedroute.snapshot.queryParamMap.get('trackingId')||0;
-    if(this.trackingId){
-      this.trackingService.trackPackage(this.trackingId).subscribe(
-        (response: any) => {
-          this.toastr.clear();
-          this.stringifiedData = Array.of(response);
-          this.orderStatus = this.stringifiedData[0].status;
-          if(this.orderStatus == 'BOOKED'){
-            this.val = 1;
-          }
-          if(this.orderStatus == 'DISPATCHED'){
-            this.val = 2;
-          }
-          if(this.orderStatus == 'OUT'){
-            this.val = 3;
-          }
-          if(this.orderStatus == 'DELIVERED'){
-            this.val = 4;
-          }
-        },
-        (error: HttpErrorResponse) => {
-          this.toastr.clear();
-          this.toastr.error(error.error.errorMessage, 'Error');
-        }
-      );
-    }
-    */
   }
 
-  onSubmit(f : NgForm){
-    /*
-
-    this.trackingService.trackPackage(f.value['trackingId']).subscribe(
-      (response: any) => {
-        this.toastr.clear();
-        this.stringifiedData = Array.of(response);
-        this.orderStatus = this.stringifiedData[0].status;
+  formSubmit(){
+    console.log(this.track);
+    this.trackingService.trackPackage(this.track).subscribe(
+      (data: any)=>{
+        console.log(data)
+          Swal.fire({
+          icon: 'success',
+          title: 'Check Your status',
+          text: 'Your Item is already' + data.status,
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
         
-        if(this.orderStatus == 'BOOKED'){
-          this.val = 1;
-        }
-        if(this.orderStatus == 'DISPATCHED'){
-          this.val = 2;
-        }
-        if(this.orderStatus == 'OUT'){
-          this.val = 3;
-        }
-        if(this.orderStatus == 'DELIVERED'){
-          this.val = 4;
-        }
+     
+        //succes;
       },
-      (error: HttpErrorResponse) => {
-        this.toastr.clear();
-        this.toastr.error(error.error.errorMessage, 'Error');
-        this.stringifiedData = '';
+      (error)=>{
+        console.log(error)
+         Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        footer: '<a href="">Why do I have this issue?</a>'
+      })
+        //error
       }
-    );
-    */
-  }
+    )
 
+    }
+    
 
  
 
