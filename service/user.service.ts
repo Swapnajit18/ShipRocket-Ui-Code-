@@ -12,7 +12,7 @@ export class UserService {
   
 
   public register(user:any){
-    return this.http.post(`${baseUrl}/users`,user);
+    return this.http.post(`${baseUrl}/users/CreateUser`,user);
 
   }
 }

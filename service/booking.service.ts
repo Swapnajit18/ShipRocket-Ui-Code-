@@ -10,7 +10,7 @@ export class BookingService {
   constructor(private http:HttpClient) { }
 
   public booking(user:any){
-    return this.http.post(`${baseUrl}/booking`,user);
+    return this.http.post(`${baseUrl}/booking/createBookingData`,user);
 
   }
 }

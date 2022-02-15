@@ -56,13 +56,17 @@ export class GriddataComponent implements OnInit {
 */
 export class GriddataComponent implements OnInit {
   role: any;
+  userid:any;
+  username:any;
   codeArray: any;
+
 
   
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {
       console.log(params);
       this.role = params['role'];
+      this.username=params['username'];
       //this.codeArray = params['code'];
      
     });
@@ -88,7 +92,7 @@ export class GriddataComponent implements OnInit {
   {
   
 
-    this.http.get(`${baseUrl}/list/p`).subscribe(data => {
+    this.http.get(`${baseUrl}/list/showList`).subscribe(data => {
     //data storing for use in html component
     
     console.log(this.role)
@@ -96,11 +100,22 @@ export class GriddataComponent implements OnInit {
       this.rowData = data;
     
     }else{
+      this.http.get(`${baseUrl}/list/name/${this.username}`).subscribe(data => {
+      console.log(data)
       console.log(this.role)
+      console.log(this.username)
+      this.rowData = data;
+    }, error => console.error(error));
+
+
     }
     console.log(data)
         }, error => console.error(error));
 }
+
+
+
+
 
 
 

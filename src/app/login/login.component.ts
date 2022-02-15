@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
           queryParams: {
             //isEdit: true,
             role: data.role,
+            username:data.username,
           },
           relativeTo: this.route,
         });
