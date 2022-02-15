@@ -1,3 +1,35 @@
 @import "~ag-grid-community/dist/styles/ag-grid.css";
 @import "ag-grid-community/dist/styles/ag-theme-alpine.css";
 
+
+.button ,.btn2 {
+    padding: 10px 15px;
+    font-size: 15px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 9px #999;
+  }
+.button:hover {background-color: #3e8e41}
+.btn2:hover {background-color: #3e8e41}
+
+.button,.btn2:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+.button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 30px;
+}
+
+.btn2{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 850px;
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginuserService } from 'service/loginuser.service';
 import Swal from 'sweetalert2';
 import { User } from '../user';
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
     password:'',
   };
   */
-  constructor( private loginuserservice:LoginuserService,private router:Router){}
+  constructor( private loginuserservice:LoginuserService,private router:Router,private route:ActivatedRoute){}
   ngOnInit(): void {}
 
   formSubmit(){
@@ -26,8 +26,18 @@ export class LoginComponent implements OnInit {
     this.loginuserservice.loginUser(this.user1).subscribe(
       (data)=>{
         console.log(data)
+
+        this.router.navigate(['../griddata'], {
+          queryParams: {
+            //isEdit: true,
+            role: data.role,
+          },
+          relativeTo: this.route,
+        });
+
+       
         Swal.fire('Success','Logged in')
-        this.router.navigate(['booking'])
+       // this.router.navigate(['griddata'])
         //succes;
       },
       (error)=>{
@@ -38,10 +48,19 @@ export class LoginComponent implements OnInit {
         text: 'Something went wrong!',
         footer: '<a href="">Why do I have this issue?</a>'
       })
+
+
         //error
       }
+
+      
     )
-    
+   
+   
+   
+
+
+   
 
 
 

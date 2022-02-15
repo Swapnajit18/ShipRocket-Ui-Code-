@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ColDef, IDatasource, IGetRowsParams } from 'ag-grid-community';
 import { AgGridService } from 'service/ag-grid.service';
 import baseUrl from 'service/helper';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -54,11 +55,21 @@ export class GriddataComponent implements OnInit {
 
 */
 export class GriddataComponent implements OnInit {
+  role: any;
+  codeArray: any;
 
   
   ngOnInit(): void {
+    this.route.queryParams.subscribe((params) => {
+      console.log(params);
+      this.role = params['role'];
+      //this.codeArray = params['code'];
+     
+    });
   
   }
+
+
   
   columnDefs: ColDef[] = [
     { headerName:'Booking Id',field: 'bookingId', sortable: true,filter: true , flex: 1, minWidth: 100}, //filter: true },
@@ -66,19 +77,31 @@ export class GriddataComponent implements OnInit {
     { headerName:'Sender Name',field: 'senderName', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
     { headerName:'Tracking Id',field: 'trackingID', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
     { headerName:'Status',field: 'status', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
-    { headerName:'Comments',field: 'comments', sortable: true,filter: true , flex: 1, minWidth: 100} //filter: true },
+    { headerName:'Comments',field: 'comments', sortable: true,filter: true , flex: 1, minWidth: 100,editable:true} //filter: true },
 ];
 
   rowData:any;
-  constructor(private http:HttpClient,private aggrid:AgGridService) 
+  constructor(private http:HttpClient,private aggrid:AgGridService,private route:ActivatedRoute) 
+
+  
 
   {
   
 
     this.http.get(`${baseUrl}/list/p`).subscribe(data => {
     //data storing for use in html component
-    this.rowData = data;
+    
+    console.log(this.role)
+    if(this.role=="ADMIN"){
+      this.rowData = data;
+    
+    }else{
+      console.log(this.role)
+    }
     console.log(data)
         }, error => console.error(error));
 }
+
+
+
 }

@@ -2,16 +2,23 @@
 *{overflow: hidden;}
 .navbar
 {
-    background-color: #2b19c7ef;
+    background-color: #0a090eef;
 }
 
 .navbar-light .navbar-nav .nav-link{
-    color: #000000;
+    color: rgb(214, 213, 207);
     font-size: 20px;
 }
+.navbar-brand{
+    color: rgb(214, 213, 207);
 
+}
 
+.navbar-brand:hover{
+
+    background-color: rgb(228, 33, 33);
+}
 .navbar-light .navbar-nav .nav-link:hover{
-    background-color: rgb(78, 128, 120);
-    text-decoration: underline;
+    background-color: rgb(228, 33, 33);
+  
 }
