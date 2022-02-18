@@ -1,0 +1,16 @@
+<form [formGroup]="statusForm" (ngSubmit)="submitData()">
+<select (change)="selectChangeHandler($event)">
+    <option>BOOKED</option>
+    <option>SHIPPED</option>
+    <option>DELIVERED</option>
+    <option>CANCELED</option>
+</select>
+
+<button class="btn2" type="submit">Submit</button>
+
+</form>
+
+
+<button class="btn3" mat-button (click)="onClose()">
+    <mat-icon>close</mat-icon>
+</button>

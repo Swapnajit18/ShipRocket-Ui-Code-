@@ -4,6 +4,7 @@ import { ColDef, IDatasource, IGetRowsParams } from 'ag-grid-community';
 import { AgGridService } from 'service/ag-grid.service';
 import baseUrl from 'service/helper';
 import { ActivatedRoute, Router } from '@angular/router';
+import { StatusPopupComponent } from '../status-popup/status-popup.component';
 
 
 
@@ -80,16 +81,22 @@ export class GriddataComponent implements OnInit {
     { headerName:'Package Id',field: 'packageId', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
     { headerName:'Sender Name',field: 'senderName', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
     { headerName:'Tracking Id',field: 'trackingID', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
-    { headerName:'Status',field: 'status', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
-    { headerName:'Comments',field: 'comments', sortable: true,filter: true , flex: 1, minWidth: 100,editable:true} //filter: true },
+    { headerName:'Status',field: 'status', sortable: true,filter: true , flex: 1, minWidth: 100, 
+      /*cellRenderer:  StatusPopupComponent,
+      cellEditor: 'agRichSelectCellEditor',
+      cellEditorPopup: true,
+      cellEditorParams: {
+        cellRenderer:  StatusPopupComponent,
+        cellEditorPopup: true,
+      },*/},
+    { headerName:'Comments',field: 'comments', sortable: true,filter: true , flex: 1, minWidth: 100,editable:true},
+    { headerName:'For-Update',field: '', sortable: true,"cellRendererFramework": StatusPopupComponent}
+     
+    
 ];
 
   rowData:any;
-  constructor(private http:HttpClient,private aggrid:AgGridService,private route:ActivatedRoute) 
-
-  
-
-  {
+  constructor(private http:HttpClient,private aggrid:AgGridService,private route:ActivatedRoute) {
   
 
     this.http.get(`${baseUrl}/list/showList`).subscribe(data => {
@@ -101,9 +108,9 @@ export class GriddataComponent implements OnInit {
     
     }else{
       this.http.get(`${baseUrl}/list/name/${this.username}`).subscribe(data => {
-      console.log(data)
-      console.log(this.role)
-      console.log(this.username)
+      //console.log(data)
+     // console.log(this.role)
+     // console.log(this.username)
       this.rowData = data;
     }, error => console.error(error));
 
@@ -112,6 +119,8 @@ export class GriddataComponent implements OnInit {
     console.log(data)
         }, error => console.error(error));
 }
+
+
 
 
 

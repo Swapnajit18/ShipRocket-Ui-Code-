@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,Validators,FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'service/user.service';
 import Swal from 'sweetalert2';
 
@@ -11,7 +12,7 @@ import Swal from 'sweetalert2';
 export class RegisterComponent implements OnInit {
 
   public registerForm: any;
-  constructor(private userService:UserService) { 
+  constructor(private userService:UserService,private router:Router,private route:ActivatedRoute) { 
     this.registerForm = new FormGroup({
       username: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]),
       password: new FormControl('', Validators.required),
@@ -53,6 +54,7 @@ export class RegisterComponent implements OnInit {
       (data)=>{
         console.log("data")
         Swal.fire('Success','user is registerd')
+        this.router.navigate(['login'])
         //succes;
       },
       (error)=>{

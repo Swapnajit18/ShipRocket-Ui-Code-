@@ -13,4 +13,9 @@ export class BookingService {
     return this.http.post(`${baseUrl}/booking/createBookingData`,user);
 
   }
+
+  public update(user:any){
+    return this.http.post(`${baseUrl}/list/update`,user);
+
+  }
 }

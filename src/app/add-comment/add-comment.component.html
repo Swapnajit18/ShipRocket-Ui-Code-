@@ -1,0 +1,10 @@
+<form [formGroup]="commentsForm" (ngSubmit)="submitData()">
+    <textarea formControlName="comments" name="comments">
+      </textarea>
+      <button type="submit" class="btn btn-warning btn-lg ms-2">Submit form</button>
+      
+    </form>
+
+<button class="btn3" mat-button (click)="onClose()">
+    <mat-icon>close</mat-icon>
+</button>

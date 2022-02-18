@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule ,FormGroup,FormControl} from '@angular/forms';
 import '@angular/compiler';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +19,14 @@ import { GriddataComponent } from './griddata/griddata.component';
 import { AdminComponent } from './admin/admin.component';
 import { TrackingPageComponent } from './tracking-page/tracking-page.component';
 import { FooterComponent } from './footer/footer.component';
+import { StatusPopupComponent } from './status-popup/status-popup.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCommonModule} from '@angular/material/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AddStatusComponent } from './add-status/add-status.component';
+import { AddCommentComponent } from './add-comment/add-comment.component';
+
 
 
 
@@ -35,6 +44,10 @@ import { FooterComponent } from './footer/footer.component';
     AdminComponent,
     TrackingPageComponent,
     FooterComponent,
+    StatusPopupComponent,
+    AddStatusComponent,
+    AddCommentComponent,
+  
     
    
   ],
@@ -45,12 +58,17 @@ import { FooterComponent } from './footer/footer.component';
     ReactiveFormsModule,
     NgbModule,
     HttpClientModule,
+    MatMenuModule,
+    MatIconModule,
+    MatCommonModule,
+    BrowserAnimationsModule,MatDialogModule,
     AgGridModule.withComponents([]),
 
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [AddStatusComponent]
 })
 export class AppModule { }
 
