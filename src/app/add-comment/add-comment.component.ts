@@ -56,7 +56,7 @@ export class AddCommentComponent implements OnInit {
 
    this.bookingService.update(user).subscribe(
     (data:any)=>{
-      console.log(data)
+      //console.log(data)
       Swal.fire({
           icon: 'success',
           title: 'Updated Succesfully',

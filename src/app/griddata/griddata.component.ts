@@ -80,7 +80,7 @@ export class GriddataComponent implements OnInit {
     { headerName:'Booking Id',field: 'bookingId', sortable: true,filter: true , flex: 1, minWidth: 100}, //filter: true },
     { headerName:'Package Id',field: 'packageId', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
     { headerName:'Sender Name',field: 'senderName', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
-    { headerName:'Tracking Id',field: 'trackingID', sortable: true,filter: true , flex: 1, minWidth: 100},// filter: true },
+    { headerName:'Tracking Id',field: 'trackingID', sortable: true,filter: true , flex: 1, minWidth: 100,editable:true},// filter: true },
     { headerName:'Status',field: 'status', sortable: true,filter: true , flex: 1, minWidth: 100, 
       /*cellRenderer:  StatusPopupComponent,
       cellEditor: 'agRichSelectCellEditor',
