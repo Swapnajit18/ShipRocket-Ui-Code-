@@ -30,7 +30,7 @@ export class StatusPopupComponent implements OnInit {
   }
 
   execute(){
-    console.log(this.params)
+    //console.log(this.params)
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=true;
     dialogConfig.autoFocus=true;

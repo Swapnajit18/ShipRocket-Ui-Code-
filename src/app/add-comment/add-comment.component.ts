@@ -60,6 +60,7 @@ export class AddCommentComponent implements OnInit {
       Swal.fire({
           icon: 'success',
           title: 'Updated Succesfully',
+          text:'Your changes will be reflected in next login',
         
         }
        );

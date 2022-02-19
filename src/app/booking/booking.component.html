@@ -5,17 +5,17 @@
           <div class="col-12 col-md-9 col-lg-7 col-xl-6">
             <div class="card" style="border-radius: 15px;">
               <div class="card-body p-5">
-                <h2 class="text-uppercase text-center mb-5">Book Your Items</h2>
+                <h2 class="text-uppercase text-center mb-5">Add Your Booking</h2>
   
                 <form [formGroup]="bookingForm" (ngSubmit)="submitData()">
   
                   <div class="form-outline mb-4">
-                    <input type="text" formControlName="s_from" id="form3Example1cg" class="form-control form-control-lg" />
+                    <input type="text" formControlName="s_from" id="form3Example1cg" placeholder="Enter City" class="form-control form-control-lg" />
                     <label class="form-label" for="form3Example1cg">From</label>
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input type="text" id="form3Example1cg" formControlName='r_to' class="form-control form-control-lg" />
+                    <input type="text" id="form3Example1cg" formControlName='r_to' placeholder="Enter City" class="form-control form-control-lg" />
                     <label class="form-label" for="form3Example1cg">To</label>
                   </div>
   

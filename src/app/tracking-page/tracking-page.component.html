@@ -6,12 +6,13 @@
                 <div class="col-xl-8 col-lg-10">
                     <div class="tracking-id-info text-center">
                     -->
-                        <p>Enter Your Cargo Tracking, Door to Door Office <a href="#">Order Number.</a></p>
+                        
 
                         <form (ngSubmit)="formSubmit()" class="tracking-id-form" >
-                            <input [(ngModel)]="track.trackingId"
+                            <p>Enter Your Tracking-Id Here:---</p>
+                            <input class="finu" [(ngModel)]="track.trackingId"
                               type="text" id="tracking_id"  name="trackingId">
-                            <button class="btn red-btn">Tracking</button>
+                            <button class="btn btn-warning btn-lg ms-2">Tracking</button>
                         </form>
 <!--
                         <div class="tracking-list" id="status-icon" *ngIf="stringifiedData">
