@@ -34,7 +34,7 @@ export class StatusPopupComponent implements OnInit {
     const dialogConfig=new MatDialogConfig();
     dialogConfig.disableClose=true;
     dialogConfig.autoFocus=true;
-    dialogConfig.width="50%";
+    dialogConfig.width="20%";
     dialogConfig.height="30%";
 
     this.dialog.open(AddStatusComponent,dialogConfig);
