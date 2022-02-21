@@ -16,9 +16,14 @@ export class StatusPopupComponent implements OnInit {
   data:any;
   params:any;
 
+ 
+
+
   agInit(params:any) {
     this.params=params;
     this.data = params.value;
+    
+
   }
   refresh(params: ICellRendererParams): boolean {
     return false;
@@ -30,14 +35,40 @@ export class StatusPopupComponent implements OnInit {
   }
 
   execute(){
-    //console.log(this.params)
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.disableClose=true;
-    dialogConfig.autoFocus=true;
-    dialogConfig.width="20%";
-    dialogConfig.height="30%";
+    const dialogRef=this.dialog.open(AddStatusComponent,{
+      disableClose:true,
+       autoFocus:true,
+      width:"20%",
+      height:"30%",
+      data:{
+              bookingId: this.params.data.bookingId,
+              comments:this.params.data.comments,
+              status:this.params.data.status
+      
+          }
+      });
 
-    this.dialog.open(AddStatusComponent,dialogConfig);
+      dialogRef.afterClosed().subscribe((res) => {
+        
+       
+        
+      });
+      //dialogRef.afterClosed().subscribe();
+
+    //console.log(this.params)
+    //  const dialogConfig=new MatDialogConfig();
+    //  dialogConfig.disableClose=true;
+    //  dialogConfig.autoFocus=true;
+    // dialogConfig.width="20%";
+    // dialogConfig.height="30%";
+    // dialogConfig.data={
+    //    bookingId: this.params.data.bookingId,
+    //     comments:this.params.data.comments,
+    //     status:this.params.data.status
+
+    //  }
+    //  this.dialog.open(AddStatusComponent,dialogConfig)
+    /*
 
     this.router.navigate(['../griddata'],
      {
@@ -49,6 +80,7 @@ export class StatusPopupComponent implements OnInit {
       },
       relativeTo: this.route,
     });
+    */
   }
 
   addComment(){
@@ -58,19 +90,25 @@ export class StatusPopupComponent implements OnInit {
     dialogConfig.autoFocus=true;
     dialogConfig.width="20%";
     dialogConfig.height="50%";
+    dialogConfig.data={
+      bookingId: this.params.data.bookingId,
+       comments:this.params.data.comments,
+       status:this.params.data.status
+
+    }
 
     this.dialog.open(AddCommentComponent,dialogConfig);
 
-    this.router.navigate(['../griddata'],
-     {
-      queryParams: {
-        //isEdit: true,
-        bookingId: this.params.data.bookingId,
-        status:this.params.data.status,
-        comments:this.params.data.comments
-      },
-      relativeTo: this.route,
-    });
+    // this.router.navigate(['../griddata'],
+    //  {
+    //   queryParams: {
+    //     //isEdit: true,
+    //     bookingId: this.params.data.bookingId,
+    //     status:this.params.data.status,
+    //     comments:this.params.data.comments
+    //   },
+    //   relativeTo: this.route,
+    // });
   }
 
 }

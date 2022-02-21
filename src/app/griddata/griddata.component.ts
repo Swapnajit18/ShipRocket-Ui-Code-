@@ -5,6 +5,7 @@ import { AgGridService } from 'service/ag-grid.service';
 import baseUrl from 'service/helper';
 import { ActivatedRoute, Router } from '@angular/router';
 import { StatusPopupComponent } from '../status-popup/status-popup.component';
+import Swal from 'sweetalert2';
 
 
 
@@ -102,7 +103,7 @@ export class GriddataComponent implements OnInit {
     this.http.get(`${baseUrl}/list/showList`).subscribe(data => {
     //data storing for use in html component
     
-    console.log(this.role)
+    //console.log(this.role)
     if(this.role=="ADMIN"){
       this.rowData = data;
     
@@ -117,7 +118,18 @@ export class GriddataComponent implements OnInit {
 
     }
     console.log(data)
-        }, error => console.error(error));
+        },  (error)=>{
+          console.log('error')
+           Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          
+        })
+          //error
+        }
+    )
+      
 }
 
 

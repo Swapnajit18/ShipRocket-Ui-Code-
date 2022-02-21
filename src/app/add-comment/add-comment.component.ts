@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef } from '@angular/material/dialog';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { BookingService } from 'service/booking.service';
 import Swal from 'sweetalert2';
@@ -16,7 +16,7 @@ export class AddCommentComponent implements OnInit {
   codeArray: any;
  public commentsForm: any;
 
-  constructor(public dialogbox:MatDialogRef<AddCommentComponent>,private route:ActivatedRoute,private bookingService:BookingService) {
+  constructor(public dialogbox:MatDialogRef<AddCommentComponent>,@Inject(MAT_DIALOG_DATA) public data: any,private route:ActivatedRoute,private bookingService:BookingService) {
     this.commentsForm = new FormGroup({
       comments: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*')]),
       
@@ -26,14 +26,16 @@ export class AddCommentComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.route.queryParams.subscribe((params) => {
-      console.log(params);
-      this.bookingId = params['bookingId'];
-      this.status=params['status'];
+    // this.route.queryParams.subscribe((params) => {
+    //   console.log(params);
+    //   this.bookingId = params['bookingId'];
+    //   this.status=params['status'];
   
-      //this.codeArray = params['code'];
+    //   //this.codeArray = params['code'];
      
-    });
+    // });
+    this.bookingId = this.data.bookingId;
+     this.status=this.data.status;
   }
 
   onClose(){

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,Validators,FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BookingService } from 'service/booking.service'; 
 import Swal from 'sweetalert2';
 @Component({
@@ -9,7 +10,7 @@ import Swal from 'sweetalert2';
 })
 export class BookingComponent implements OnInit {
   public bookingForm: any;
-  constructor(private bookingService:BookingService) {
+  constructor(private bookingService:BookingService,private router:Router) {
     this.bookingForm = new FormGroup({
       s_from: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z0-9]*')]),
       r_to: new FormControl('', Validators.required),
@@ -52,6 +53,7 @@ export class BookingComponent implements OnInit {
           
           }
          );
+        // this.router.navigate(['griddata'])
         //succes;
       },
       (error)=>{
