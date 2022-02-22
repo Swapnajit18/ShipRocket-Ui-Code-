@@ -37,12 +37,12 @@ export class RegisterComponent implements OnInit {
     console.log("Check");
     let user = {
       username: this.registerForm.controls.username.value,
-      password: this.registerForm.controls.password.value,
+      password: btoa(this.registerForm.controls.password.value),
       address: this.registerForm.controls.address.value,
       email: this.registerForm.controls.email.value,
       mobile: this.registerForm.controls.mobile.value,
       role: this.selected,
-      // contact: this.registerForm.controls.contact.value,
+     
     }
   
     console.log(user);

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ColDef, IDatasource, IGetRowsParams } from 'ag-grid-community';
+import { ColDef, GridReadyEvent, IDatasource, IGetRowsParams } from 'ag-grid-community';
 import { AgGridService } from 'service/ag-grid.service';
 import baseUrl from 'service/helper';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -61,6 +61,7 @@ export class GriddataComponent implements OnInit {
   userid:any;
   username:any;
   codeArray: any;
+  gridApi: any;
 
 
   
@@ -98,9 +99,12 @@ export class GriddataComponent implements OnInit {
 
   rowData:any;
   constructor(private http:HttpClient,private aggrid:AgGridService,private route:ActivatedRoute) {
-  
+  this.CallGrid();
+      
+}
 
-    this.http.get(`${baseUrl}/list/showList`).subscribe(data => {
+CallGrid(){
+  this.http.get(`${baseUrl}/list/showList`).subscribe(data => {
     //data storing for use in html component
     
     //console.log(this.role)
@@ -129,11 +133,12 @@ export class GriddataComponent implements OnInit {
           //error
         }
     )
-      
 }
 
-
-
+onGridReady(params: GridReadyEvent) {
+  this.gridApi = params.api;
+  this.gridApi?.api?.sizeColumnsToFit();
+}
 
 
 

@@ -23,6 +23,7 @@ export class LoginComponent implements OnInit {
 
   formSubmit(){
     console.log(this.user1);
+    this.user1.password = btoa(this.user1.password),
     this.loginuserservice.loginUser(this.user1).subscribe(
       (data)=>{
         console.log(data)
