@@ -12,12 +12,7 @@ import { User } from '../user';
 export class LoginComponent implements OnInit {
   user1:User =new User();
  
-/*
-  loginData={
-    username:'',
-    password:'',
-  };
-  */
+
   constructor( private loginuserservice:LoginuserService,private router:Router,private route:ActivatedRoute){}
   ngOnInit(): void {}
 
@@ -39,8 +34,7 @@ export class LoginComponent implements OnInit {
 
        
         Swal.fire('Success','Logged in')
-       // this.router.navigate(['griddata'])
-        //succes;
+       
       },
       (error)=>{
         console.log(error)
@@ -63,57 +57,6 @@ export class LoginComponent implements OnInit {
 
 
    
-
-
-
-    /*
-
-    if(this.loginData.username.trim()=='' || this.loginData.username==null){
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Username required!!!',
-        footer: '<a href="">Why do I have this issue?</a>'
-      });
-      return;
-    }
-
-    if(this.loginData.password.trim()=='' || this.loginData.password==null){
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Password required!!!',
-        footer: '<a href="">Why do I have this issue?</a>'
-      });
-      return;
-    }
-    /** 
-    this.login.generateToken(this.loginData).subscribe(
-      (data:any)=>{
-        console.log("Success");
-        console.log("data");
-
-        //Login ...
-
-        this.login.loginUser(data.token);
-        this.login.getCurrentUser().subscribe(
-          (user:any)=>{
-            this.login.setUser(user);
-            console.log(user)
-
-            //redirect...Admin
-            //redirect ..User
-          }
-        );
-      },
-      (error)=>{
-        console.log("Failed");
-        console.log("error");
-        
-      }
-    );
-
-*/
   }
  
 

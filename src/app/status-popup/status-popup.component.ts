@@ -53,38 +53,9 @@ export class StatusPopupComponent implements OnInit {
       dialogRef.afterClosed().subscribe((res) => {
         this.griddata.CallGrid();
        
-
-      //this.gridApi.refreshServerSideStore({ purge: true });
         
       });
-      //dialogRef.afterClosed().subscribe();
-
-    //console.log(this.params)
-    //  const dialogConfig=new MatDialogConfig();
-    //  dialogConfig.disableClose=true;
-    //  dialogConfig.autoFocus=true;
-    // dialogConfig.width="20%";
-    // dialogConfig.height="30%";
-    // dialogConfig.data={
-    //    bookingId: this.params.data.bookingId,
-    //     comments:this.params.data.comments,
-    //     status:this.params.data.status
-
-    //  }
-    //  this.dialog.open(AddStatusComponent,dialogConfig)
-    /*
-
-    this.router.navigate(['../griddata'],
-     {
-      queryParams: {
-        //isEdit: true,
-        bookingId: this.params.data.bookingId,
-        comments:this.params.data.comments,
-        status:this.params.data.status
-      },
-      relativeTo: this.route,
-    });
-    */
+      
   }
 
   addComment(){
@@ -105,27 +76,10 @@ export class StatusPopupComponent implements OnInit {
         this.griddata.CallGrid();
        
 
-      //this.gridApi.refreshServerSideStore({ purge: true });
+      
         
       });
-    // console.log(this.params)
-    // const dialogConfig=new MatDialogConfig();
-    // dialogConfig.disableClose=true;
-    // dialogConfig.autoFocus=true;
-    // dialogConfig.width="20%";
-    // dialogConfig.height="50%";
-    // dialogConfig.data={
-    //   bookingId: this.params.data.bookingId,
-    //    comments:this.params.data.comments,
-    //    status:this.params.data.status
-
-    // }
-
-    // this.dialog.open(AddCommentComponent,dialogConfig);
-
-  
-
-   
+    
   }
 
 }

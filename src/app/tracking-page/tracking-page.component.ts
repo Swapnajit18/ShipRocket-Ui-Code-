@@ -29,8 +29,7 @@ export class TrackingPageComponent implements OnInit{
           Swal.fire({
           icon: 'success',
           title: 'Check Your status',
-          text: 'Your Item is already ' + data.status,
-          footer: '<a href="">Why do I have this issue?</a>'
+          text: 'Your Item is already ' + data.status + '  Comment - ' + data.comments,
         })
         
      
@@ -42,7 +41,7 @@ export class TrackingPageComponent implements OnInit{
         icon: 'error',
         title: 'Oops...',
         text: 'Something went wrong!',
-        footer: '<a href="">Why do I have this issue?</a>'
+        
       })
         //error
       }
